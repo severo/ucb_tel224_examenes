@@ -1,0 +1,90 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+
+\boxedpoints
+\pointpoints{punto}{puntos}
+\vqword{Pregunta}
+\vpgword{Página}
+\vpword{Puntos}
+\vsword{Nota}
+\vtword{Total}
+
+
+\begin{document}
+
+\header{TEL224}{Primer control de lectura}{Viernes 06/03/2015}
+\headrule
+
+
+\title{Primer control de lectura - TEL224}
+\date{Viernes 06/03/2015}
+\maketitle
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Responder a las preguntas en los espacios libres entre las preguntas. Si le falta espacio, escribir al reverso de la página.
+
+Esta permitido el uso de apuntes y libros. Esta prohibido el uso de medios electrónicos, y el trabajo en equipo.}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Nombre completo:\enspace\hrulefill}
+
+\section*{Preguntas}
+
+\begin{questions}
+\question[20]
+Determine si el sistema siguiente es (1) estable, (2) causal, (3) lineal y (4) invariante con el tiempo.
+
+$$T(x[n]) = (\cos(\pi n))x[n]$$
+\makeemptybox{\stretch{1}}
+\newpage
+
+\question[20]
+La respuesta en frecuencia de un sistema lineal e invariante con el tiempo es
+
+$$H\left(e^{j\omega}\right) = 1 - \frac{0.45 e^{-j\omega}}{1 - 0.8 e^{-j\omega}}$$
+
+Especifique la ecuación en diferencias que relaciona la entrada $x[n]$ con la salida $y[n]$.
+
+\makeemptybox{\stretch{1}}
+
+\question[60]
+Un sistema lineal, invariante con el tiempo y causal tiene como función de transferencia
+
+$$H(z) = \frac{1-z^{-1}}{1- 0.25 z^{-2}} = \frac{1-z^{-1}}{\left(1- 0.5 z^{-1}\right)\left(1+0.5 z^{-1}\right)}$$
+
+\begin{parts}
+\part[20]
+
+Defina la región de convergencia, y represente región de convergencia, ceros y polos en el plano z
+
+\makeemptybox{\stretch{1}}
+\newpage
+
+\part[20]
+Determine la salida del sistema cuando la entrada es $x[n] = u[n]$.
+
+\makeemptybox{\stretch{1}}
+
+\part[20]
+Determine la entrada $x[n]$ de forma que la correspondiente salida del sistema anterior sea $y[n] = \delta[n] - \delta[n - 1].$
+
+
+\makeemptybox{\stretch{1}}
+\newpage
+\end{parts}
+
+
+\end{questions}
+
+\section*{Resultados}
+
+\begin{center}
+\gradetable[v][questions]
+\end{center}
+
+
+\footrule
+\footer{}{Página \thepage\ de \numpages}{}
+
+\end{document}
