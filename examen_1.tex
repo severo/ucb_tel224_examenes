@@ -1,0 +1,145 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\boxedpoints
+\pointpoints{punto}{puntos}
+\vqword{Pregunta}
+\vpgword{Página}
+\vpword{Puntos}
+\vsword{Nota}
+\vtword{Total}
+
+
+\begin{document}
+
+\header{TEL224}{Primer examen}{Viernes 13/03/2015}
+\headrule
+
+
+\title{Primer examen - TEL224}
+\date{Viernes 13/03/2015}
+\maketitle
+
+\vspace{0.1in}
+\makebox[\textwidth]{Nombre completo:\enspace\hrulefill}
+
+\section*{Preguntas}
+
+\begin{questions}
+\question[5]
+¿Qué es la diferencia entre sistema sin memoria y un sistema causal?
+\makeemptybox{\stretch{1}}
+
+\question[5]
+¿Qué es un sistema estable en el sentido BIBO?
+\makeemptybox{\stretch{1}}
+
+\question[5]
+Escribir el teorema de Parseval
+\makeemptybox{\stretch{1}}
+
+\newpage
+
+\question[5]
+Dibujar la señal \(x[n] = u[n] - u[n-5]\)
+\makeemptybox{\stretch{1}}
+
+\question[5]
+Dibujar la región de convergencia de la transformada Z de una señal limitada por la derecha, con un solo polo \(z=j\)
+\makeemptybox{\stretch{1}}
+
+\question[5]
+Demostrar la propiedad de desplazamiento en el tiempo de la transformada Z:
+
+$$x[n-n_0] \overset{\mathscr{F}}{\longleftrightarrow} z^{-n_0} X(z), \quad \text{RDC}=R_x$$
+\makeemptybox{\stretch{2}}
+
+\newpage
+
+\question[5]
+Determinar si el sistema \(T\left(x[n]\right) = x[n^2]\) es lineal, y si es invariante en el tiempo.
+\makeemptybox{\stretch{2}}
+
+\question[5]
+Escribir la transformada Z de la señal \(x[n] = \frac{1}{2}^n u[n-1] + 2 u[-n]\)
+\makeemptybox{\stretch{1}}
+
+\question[10]
+Determinar y dibujar en el plano z los ceros, polos y región de convergencia del sistema causal con la siguiente transformada Z:
+
+$$H(z) = \frac{1-z^3}{1-z^4}$$
+\makeemptybox{\stretch{2}}
+
+\newpage
+
+\question[10]
+Sea \(X\left(e^{j\omega}\right)\) la transformada de Fourier de \(x[n]\). Utilizando las ecuaciones de síntesis o análisis de la transformada de Fourier, demostrar que:
+
+\begin{parts}
+\part La transformada de Fourier de \(x^{*} [n]\) es \(X^{*}\left(e^{-j\omega}\right)\),
+\makeemptybox{\stretch{1}}
+\part La transformada de Fourier de \(x^{*} [-n]\) es \(X^{*}\left(e^{j\omega}\right)\),
+\makeemptybox{\stretch{1}}
+\end{parts}
+
+\question[20]
+Una operación numérica comúnmente utilizada es la "primera diferencia regresiva", que se define como \(y[n] = \nabla (x[n]) = x[n] - x[n - 1]\), siendo \(x[n]\) la entrada e \(y[n]\) la salida del sistema de cómputo de la primera diferencia regresiva.
+
+\begin{parts}
+\part Demostrar que este sistema es lineal e invariante con el tiempo.
+
+\makeemptybox{\stretch{1}}
+
+\newpage
+
+\part Obtener la respuesta al impulso del sistema.
+
+\makeemptybox{\stretch{1}}
+
+\part Calcular y dibujar la respuesta en frecuencia (módulo y fase).
+
+\makeemptybox{\stretch{2}}
+
+\part Obtener la respuesta al impulso de un sistema que se pudiera colocar en cascada con el sistema de cómputo de la primera diferencia regresiva para recuperar la entrada. Es decir, obtener \(h_i [n]\), tal que \(h_i [n] * \nabla(x[n]) = x[n]\).
+
+\makeemptybox{\stretch{2}}
+\end{parts}
+
+\newpage
+
+\question[20]
+Si la entrada \(x[n]\) de un sistema lineal e invariante con el tiempo es \(x[n] = u[n]\), la salida es
+
+$$y[n] = \left(\frac{1}{2}\right)^{n-1} u[n+1]$$
+
+
+\begin{parts}
+\part Calcular \(H(z)\), la transformada Z de la respuesta al impulso del sistema, y dibujar su diagrama polo–cero.
+\makeemptybox{\stretch{1}}
+\part Obtener la respuesta al impulso \(h[n]\).
+\makeemptybox{\stretch{1}}
+
+
+\newpage
+
+\part ¿Es el sistema estable, y por qué?
+\makeemptybox{\stretch{1}}
+\part ¿Es el sistema causal, y por qué?
+\makeemptybox{\stretch{1}}
+\end{parts}
+
+\end{questions}
+
+\section*{Resultados}
+
+\begin{center}
+\gradetable[v][questions]
+\end{center}
+
+
+\footrule
+\footer{}{Página \thepage\ de \numpages}{}
+
+\end{document}
