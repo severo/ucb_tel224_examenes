@@ -1,0 +1,163 @@
+\documentclass[addpoints,answers]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\boxedpoints
+\pointpoints{punto}{puntos}
+\vqword{Pregunta}
+\vpgword{Página}
+\vpword{Puntos}
+\vsword{Nota}
+\vtword{Total}
+\renewcommand{\solutiontitle}{\noindent\textbf{Respuesta:}\enspace}
+
+\begin{document}
+
+\header{TEL224}{Respuestas del primer examen (versión a)}{Viernes 13/03/2015}
+\headrule
+
+\title{Respuestas del primer examen (versión a) - TEL224}
+\date{Viernes 13/03/2015}
+\maketitle
+
+\section*{Teoría}
+
+\begin{questions}
+\question[5]
+Diseñe una señal discreta exponencial que no converja.
+
+\begin{solution}
+$$x[n] = 2^n u[n],\quad \forall n \in \mathbb{N}$$
+\end{solution}
+
+\question[5]
+Defina y ejemplifique una FIR.
+
+\begin{solution}
+FIR significa "Finite-duration Impulse Response". Un sistema FIR es un sistema con respuesta al impulso de duración finita. El sistema siguiente es un sistema FIR:
+
+$$h[n] = 2\delta[n]$$
+\end{solution}
+
+\question[5]
+¿Qué es lo que sucede cuando una exponencial compleja (autofunción) atraviese un SLIT?
+
+\begin{solution}
+La salida de un SLIT atravesado por una exponencial compleja \(x[n] = e^{j\omega n}\) es la misma exponencial compleja multiplicada por el autovalor \(H\left(e^{j\omega}\right)\), o sea la respuesta en frecuencia del SLIT en la frecuencia \(\omega\):
+
+$$
+y[n] = H\left(e^{j\omega}\right) e^{j\omega n}
+$$
+
+con
+
+$$
+H\left(e^{j\omega}\right) = \sum_{k=-\infty}^{\infty} h[k] e^{-j\omega k}
+$$
+\end{solution}
+
+\question[5]
+Dibujar la región de convergencia de la transformada Z de una señal limitada por la derecha con un único polo en \(z=j\)
+
+\begin{solution}
+La región de convergencia de la transformada Z de una señal limitada por la derecha es el disco de rayo igual al módulo del polo menor. En este caso, existe un único polo, de módulo igual a \(1\), así que la región de convergencia esta definida por el disco \(|z| < 1\).
+
+\begin{tikzpicture}
+	\begin{scope}[thick,font=\scriptsize]
+		% Axes:
+		% Are simply drawn using line with the `->` option to make them arrows:
+		% The main labels of the axes can be places using `node`s:
+		\draw [->] (-2,0) -- (2,0) node [above left]  {$\Re\{z\}$};
+		\draw [->] (0,-2) -- (0,2) node [below right] {$\Im\{z\}$};
+
+		\draw (-1,-3pt) -- (-1,3pt)   node [above] {$-1$};
+		\draw (1,-3pt) -- (1,3pt)   node [above] {$1$};
+		\draw (-3pt,-1) -- (3pt,-1)   node [right] {$-j$};
+		\draw (-3pt,1) -- (3pt,1)   node [right] {$j$};
+
+	\end{scope}
+
+	% The circle is drawn with `(x,y) circle (radius)`
+	% You can draw the outer border and fill the inner area differently.
+	% Here I use gray, semitransparent filling to not cover the axes below the circle
+	\path [draw=none,fill=gray,semitransparent] (0,0) circle (1);
+
+	% Place the text into the circle:
+	\node [below right,darkgray] at (+0.05,-0.05) {ROC};
+\end{tikzpicture}
+
+\end{solution}
+
+\question[5]
+Dada la siguiente señal \(x[n]\), dibuje \(x[-(n-2)]\).
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis x line=middle,
+		axis y line=left,
+		xtick={0,...,7},
+		ytick={0,0.5,1},
+		xmax=7.5, xmin=-0.5,
+		ymax=1.1, ymin=-0.1
+		]
+		\addplot+[ycomb] plot coordinates
+			{(0,0) (1,0) (2,0) (3,1) (4,1) (5,0.5) (6,0.5) (7,0)};
+	\end{axis}
+\end{tikzpicture}
+
+\begin{solution}
+
+Los únicos valores diferentes de cero son para \(n = 3, ...,6\), se transforman de la manera siguiente:
+
+\begin{itemize}
+	\item \(x[3] = 1\) se vuelve \(x[-1] = 1\)
+	\item \(x[4] = 1\) se vuelve \(x[-2] = 1\)
+	\item \(x[5] = 0.5\) se vuelve \(x[-3] = 0.5\)
+	\item \(x[6] = 0.5\) se vuelve \(x[-4] = 0.5\)
+\end{itemize}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis x line=middle,
+		axis y line=left,
+		xtick={-5,...,2},
+		ytick={0,0.5,1},
+		xmax=2.5, xmin=-5.5,
+		ymax=1.1, ymin=-0.1
+		]
+		\addplot+[ycomb] plot coordinates
+			{(-5,0) (-4,0.5) (-3,0.5) (-2,1) (-1,1) (0,0) (1,0) (2,0)};
+	\end{axis}
+\end{tikzpicture}
+
+\end{solution}
+
+\question[5]
+Si la entrada del sistema es: \(x[n] = u[n]\) y su respuesta al impulso es: \(h[n] = \frac{1}{4}^{n-1} u[n-1]\), encuentre su salida. Recuerde: \(y[n] = x[n] * h[n]\)
+
+\begin{solution}
+\[
+\begin{array}{ll}
+	y[n]	&= x[n] * h[n] \\
+			&= \sum_{k=-\infty}^{\infty}x[k]h[n-k] \\
+			&= \sum_{k=0}^{\infty}h[n-k], \quad \text{porque } x[n]=0 \quad \forall n<0 \text{ y } x[n]=1 \quad \forall n \geq 0 \\
+			&= \sum_{k=0}^{\infty}\frac{1}{4}^{n-k-1} u[n-k-1] \\
+			&= \sum_{k=0}^{n-1}\frac{1}{4}^{n-k-1}, \quad \text{porque } u[n-k-1]=1 \quad \forall n-k-1 \geq 0 \text{ o sea  } k \leq n-1 \\
+			&= \sum_{l=0}^{n-1}\frac{1}{4}^{l}, \quad \text{haciendo el cambio de variable } l=n-k-1 \\
+			&= \frac{1-\left(\frac{1}{4}\right)^n}{1-\frac{1}{4}}, \quad \forall n \\
+	y[n]	&= \frac{4}{3}\left(1-\left(\frac{1}{4}\right)^n\right), \quad \forall n
+\end{array}
+\]
+\end{solution}
+
+\end{questions}
+
+\footrule
+\footer{}{Página \thepage\ de \numpages}{}
+
+\end{document}
