@@ -155,6 +155,25 @@ Si la entrada del sistema es: \(x[n] = u[n]\) y su respuesta al impulso es: \(h[
 \]
 \end{solution}
 
+
+\question[10]
+Encuentre la transformada Z unilateral de la señal: \(y[n] = 5 x[n-2] - x[n]\).
+
+\begin{solution}
+\[
+\begin{array}{ll}
+	\mathscr{Y}(z)	&= \sum_{n=0}^{\infty} \left(5 x[n-2] - x[n]\right)z^{-n} \\
+					&= 5 \sum_{n=0}^{\infty} x[n-2] z^{-n} - \sum_{n=0}^{\infty} x[n] z^{-n} \\
+					&= 5 \left( x[-2] + x[-1] z^{-1} + \sum_{n=2}^{\infty} x[n-2] z^{-n} \right) - \mathscr{X}(z) \\
+					&= 5 \left( x[-2] + x[-1] z^{-1} + z^{-2} \sum_{n=2}^{\infty} x[n-2] z^{-(n-2)} \right) - \mathscr{X}(z) \\
+					&= 5 \left( x[-2] + x[-1] z^{-1} + z^{-2} \sum_{n=0}^{\infty} x[n] z^{-n} \right) - \mathscr{X}(z) \\
+					&= 5 \left( x[-2] + x[-1] z^{-1} + z^{-2} \mathscr{X}(z) \right) - \mathscr{X}(z) \\
+					&= 5 x[-2] + 5 x[-1] z^{-1} + \left(5 z^{-2} -1 \right) \mathscr{X}(z)
+\end{array}
+\]
+\end{solution}
+
+
 \end{questions}
 
 \footrule
