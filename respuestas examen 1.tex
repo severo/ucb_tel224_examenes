@@ -173,6 +173,105 @@ Encuentre la transformada Z unilateral de la señal: \(y[n] = 5 x[n-2] - x[n]\).
 \]
 \end{solution}
 
+\question
+Del siguiente sistema: \(y[n] = x[n] - x[n-1]\), siendo \(x[n]\) la entrada y \(y[n]\) la salida:
+
+\begin{parts}
+
+\part[5]
+Demuestre que es un sistema lineal invariante en el tiempo.
+
+\begin{solution}
+Mostremos que es un sistema lineal:
+
+\[\begin{array}{ll}
+T\left\{a x_1[n]+bx_2[n]\right\} &= \left(a x_1[n]+bx_2[n]\right) - \left(a x_1[n-1]+bx_2[n-1]\right) \\
+&= a \left( x_1[n]-x_1[n-1]\right) + b \left( x_2[n]-x_2[n-1]\right) \\
+&= a T\left\{x_1[n]\right\} + b T\left\{x_2[n]\right\}
+\end{array}\]
+
+Mostremos que es invariante en el tiempo. Si \(x_1[n] = x_[n-n_0]\),
+
+\[\begin{array}{ll}
+T\left\{x_1[n]\right\} &= x_1[n] - x_1[n-1] \\
+&= x[n-n_0] - x[n-n_0-1] \\
+&= T\left\{x[n-n_0]\right\}
+\end{array}\]
+
+\end{solution}
+
+\part[5] 
+Obtener \(h[n]\) y \(H\left(e^{j\omega}\right)\).
+
+\begin{solution}
+
+\[\begin{array}{ll}
+h[n] &= T\left\{\delta[n]\right\} \\
+&= \delta[n] - \delta[n-1]
+\end{array}\]
+
+\[\begin{array}{ll}
+H\left(e^{j \omega}\right) &= \mathcal{F}\left\{\delta[n]-\delta[n-1]\right\} \\
+&= 1 - e^{-j\omega} \\
+&= e^{-\frac{j\omega}{2}} \left(e^{\frac{j\omega}{2}} - e^{-\frac{j\omega}{2}}\right) \\
+&= 2j \sin\left(\frac{\omega}{2}\right) e^{-\frac{j\omega}{2}} \\
+&= 2 \sin\left(\frac{\omega}{2}\right) e^{\frac{j(\pi - \omega)}{2}}
+\end{array}\]
+
+\end{solution}
+
+\part[5] 
+\(\left|H\left(e^{j\omega}\right)\right|\) y \(\angle H\left(e^{j\omega}\right)\).
+
+\begin{solution}
+
+El módulo es:
+
+\[\begin{array}{ll}
+\left|H\left(e^{j \omega}\right)\right| &= \left|2 \sin\left(\frac{\omega}{2}\right) e^{\frac{j(\pi - \omega)}{2}}\right| \\
+&= 2 \left| \sin\left(\frac{\omega}{2}\right)\right|
+\end{array}\]
+
+La fase es:
+
+\[\begin{array}{ll}
+\angle H\left(e^{j \omega}\right) &= \angle 2 \sin\left(\frac{\omega}{2}\right) e^{\frac{j(\pi - \omega)}{2}} \\
+&= \frac{\pi - \omega}{2}
+\end{array}\]
+
+\end{solution}
+
+\part[5]
+
+Obtener \(h_i[n]\) tal que \(h_i[n] * h[n] = \delta[n]\).
+
+\begin{solution}
+\[\begin{array}{ll}
+h_i[n] * h[n] &= \sum_{k=-\infty}^{\infty} h_i[k] h[n-k] \\
+&= \sum_{k=-\infty}^{\infty} h_i[k] \left(\delta[n-k] - \delta[n-k-1]\right) \\
+&= h_i[n] - h_i[n-1]
+\end{array}\]
+
+Para que \(h_i[n] * h[n] = h_i[n] - h_i[n-1] = \delta[n]\), es necesario que:
+
+\[
+\left\{\begin{array}{ll}
+h_i[n]-h_i[n-1] = 0, \quad \forall n < 0 \\
+h_i[n]-h_i[n-1] = 1, \quad n=0 \\
+h_i[n]-h_i[n-1] = 0, \quad \forall n > 0 \\
+\end{array}\right.
+\iff
+\left\{\begin{array}{ll}
+h_i[n] = h_i[n-1], \quad \forall n < 0 \\
+h_i[0] = 1 + h_i[-1], \quad n=0 \\
+h_i[n] = h_i[n-1], \quad \forall n > 0 \\
+\end{array}\right.
+\]
+
+Esta relación esta verificada para todas las señales \(h_i[n] = A + u[n], \quad \forall A \in \mathbb{C}\)
+\end{solution}
+
+\end{parts}
 
 \end{questions}
 
