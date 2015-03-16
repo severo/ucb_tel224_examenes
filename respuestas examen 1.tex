@@ -321,7 +321,7 @@ $\frac{3\pi}{2}$},
 
 \end{solution}
 
-\part
+\part[5]
 Obtener la respuesta al impulso: \(h[n]\):
 
 \begin{solution}
@@ -340,14 +340,14 @@ h[n] &= 4 \left(\frac{1}{2}\right)^{n+1}u[n+1] - 4 \left(\frac{1}{2}\right)^{n}u
 
 \end{solution}
 
-\part
+\part[5]
 ¿Es el sistema estable?, ¿por qué?
 
 \begin{solution}
 El sistema es estable porque la región de convergencia, definida por \(|z| > \frac{1}{2}\) contiene la circunferencia unidad.
 \end{solution}
 
-\part
+\part[5]
 ¿Es el sistema causal?, ¿por qué?
 
 \begin{solution}
@@ -357,7 +357,75 @@ El sistema no es causal, porque no cumple con la condición \(h[n]=0,\quad \fora
 \end{solution}
 
 \end{parts}
+
+\question
+Encontrando la respuesta al impulso del siguiente sistema. Determine:
+
+\[y[n] - \frac{1}{2}y[n-1] = x[n] - \frac{1}{4}x[n-1]\]
 \end{questions}
+
+\begin{parts}
+\part[5]
+Si es un sistema con o sin memoria.
+
+\begin{solution}
+Primer calculemos la función de transferencia del sistema. La transformada Z de la ecuación en diferencia nos da:
+
+\[\left(1-\frac{1}{2}z^{-1}\right) Y(z) = \left(1-\frac{1}{4}z^{-1}\right) X(z)\]
+
+lo que permite calcular la función de transferencia (la región de convergencia es \(|z| > \frac{1}{2}\) porque el sistema es causal):
+
+\[H(z) = \frac{Y(z)}{X(z)} = \frac{1-\frac{1}{4}z^{-1}}{1-\frac{1}{2}z^{-1}} = \frac{1}{1-\frac{1}{2}z^{-1}} - \frac{1}{4} \frac{z^{-1}}{1-\frac{1}{2}z^{-1}} , \quad |z| > \frac{1}{2}\]
+
+Por inspección podemos calcular la respuesta al impulso:
+
+\[\begin{array}{ll}
+h[n] &= \left(\frac{1}{2}\right)^n u[n] - \frac{1}{4} \left(\frac{1}{2}\right)^{n-1} u[n-1] \\
+&= \left(\frac{1}{2}\right)^{n+1} \left( 2 u[n] - u[n-1]  \right) \\
+&= \left(\frac{1}{2}\right)^{n+1} \left( u[n] + \delta[n] \right) \\
+\end{array}\]
+
+El sistema es con memoria, porque es un filtra a respuesta infinita (IIR), en efecto depende de todos los valores del pasado de la entrada.
+
+\end{solution}
+
+\part[5]
+Lineal o no lineal.
+
+\begin{solution}
+Todo sistema que se define como una ecuación en diferencias lineales con coeficientes constantes es un SLIT, entonces es lineal.
+\end{solution}
+
+\part[5]
+Invariante o variante con el tiempo.
+
+\begin{solution}
+Todo sistema que se define como una ecuación en diferencias lineales con coeficientes constantes es un SLIT, entonces es invariante con el tiempo.
+\end{solution}
+
+\part[5]
+Estable en el sentido BIBO y estable en el sentido de respuesta al impulso absolutamente sumable.
+
+\begin{solution}
+El sistema es estable en el sentido BIBO porque su región de convergencia, \(|z|>\frac{1}{2}\) contiene la circunferencia unidad.
+
+Calculamos la suma absoluta de la respuesta al impulso:
+
+\[\begin{array}{ll}
+\sum_{n=-\infty}^{\infty} |h[n]| &= \sum_{n=-\infty}^{\infty} \left|\left(\frac{1}{2}\right)^{n+1} \left( u[n] + \delta[n] \right)\right| \\
+&< \sum_{n=0}^{\infty} \left|\left(\frac{1}{2}\right)^{n+1} (1+1) \right| \\
+&= \sum_{n=0}^{\infty} \left|\left(\frac{1}{2}\right)^{n} \right| \\
+&= \sum_{n=0}^{\infty} \left(\frac{1}{2}\right)^{n} \\
+&= \frac{1}{1-\frac{1}{2}} \\
+&= 2
+\end{array}\]
+
+Es finita, entonces el sistema es estable en el sentido de respuesta al impulso absolutamente sumable.
+
+\end{solution}
+
+
+\end{parts}
 
 \footrule
 \footer{}{Página \thepage\ de \numpages}{}
