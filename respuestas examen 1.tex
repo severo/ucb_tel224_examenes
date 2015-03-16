@@ -7,6 +7,8 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 
+\usepgfplotslibrary{polar}
+
 \boxedpoints
 \pointpoints{punto}{puntos}
 \vqword{Pregunta}
@@ -273,6 +275,88 @@ Esta relación esta verificada para todas las señales \(h_i[n] = A + u[n], \qua
 
 \end{parts}
 
+\question
+Si la entrada \(x[n]\) de un SLIT es \(x[n] = u[n]\), la salida es: \(y[n] = \left(\frac{1}{2}\right)^{n-1}u[n+1]\).
+
+\begin{parts}
+\part[5]
+Hallar \(H(z)\) y su diagrama polo-cero.
+
+\begin{solution}
+\[X(z) = \frac{1}{1-z^{-1}}, \quad |z|>1\]
+\[Y(z) = \frac{4z}{1-\frac{1}{2}z^{-1}}, \quad |z|> \frac{1}{2}\]
+
+Entonces la función de transferencia es:
+\[\begin{array}{ll}
+H(z) &= \frac{Y(z)}{X(z)}, \quad |z|> \frac{1}{2} \\
+&= \frac{4z\left(1-z^{-1}\right)}{1-\frac{1}{2}z^{-1}} , \quad |z|> \frac{1}{2} \\
+&= \frac{4z\left(z-1\right)}{z-\frac{1}{2}} , \quad |z|> \frac{1}{2}
+\end{array}\]
+
+Su diagrama polo-cero es el siguiente:
+
+\begin{tikzpicture}
+\begin{polaraxis}[enlargelimits=false,
+ytick={1},
+yticklabels={},
+xtick={0,90,...,360},
+every outer x axis line/.append style={transparent},
+every outer y axis line/.append style={transparent},
+xticklabels={0,
+$\frac{\pi}{2}$,
+$\pi$,
+$\frac{3\pi}{2}$},
+]
+    \addplot [
+        mark=o,
+        only marks
+    ] coordinates {(0,0) (0,1)};
+    \addplot [
+        mark=x,
+        only marks
+    ] coordinates {(0,0.5)};
+
+\end{polaraxis}
+\end{tikzpicture}
+
+\end{solution}
+
+\part
+Obtener la respuesta al impulso: \(h[n]\):
+
+\begin{solution}
+\[\begin{array}{ll}
+H(z) &= \frac{4z\left(1-z^{-1}\right)}{1-\frac{1}{2}z^{-1}} , \quad |z|> \frac{1}{2} \\
+&= \frac{4z}{1-\frac{1}{2}z^{-1}} - \frac{4}{1-\frac{1}{2}z^{-1}}, \quad |z|> \frac{1}{2}
+\end{array}\]
+
+Por simple inspección, obtenemos la transformada Z inversa:
+
+\[\begin{array}{ll}
+h[n] &= 4 \left(\frac{1}{2}\right)^{n+1}u[n+1] - 4 \left(\frac{1}{2}\right)^{n}u[n] \\
+&= 4 \left(\frac{1}{2}\right)^{n+1} \left( u[n+1] - 2u[n] \right)\\
+&= 4 \left(\frac{1}{2}\right)^{n+1} \left( \delta[n+1] - u[n]\right) \\
+\end{array}\]
+
+\end{solution}
+
+\part
+¿Es el sistema estable?, ¿por qué?
+
+\begin{solution}
+El sistema es estable porque la región de convergencia, definida por \(|z| > \frac{1}{2}\) contiene la circunferencia unidad.
+\end{solution}
+
+\part
+¿Es el sistema causal?, ¿por qué?
+
+\begin{solution}
+El sistema no es causal, porque no cumple con la condición \(h[n]=0,\quad \forall n<0\). En efecto:
+
+\[h[-1] = 4 \left(\frac{1}{2}\right)^{-1+1} \left( \delta[-1+1] - u[-1]\right) = 4 \neq 0\]
+\end{solution}
+
+\end{parts}
 \end{questions}
 
 \footrule
