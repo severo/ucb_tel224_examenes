@@ -1,0 +1,99 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+
+\boxedpoints
+\pointpoints{punto}{puntos}
+\vqword{Pregunta}
+\vpgword{Página}
+\vpword{Puntos}
+\vsword{Nota}
+\vtword{Total}
+
+\begin{document}
+
+\header{TEL224}{Segundo control de lectura}{Viernes 24/04/2015}
+\headrule
+
+\title{Segundo control de lectura - TEL224}
+\date{Viernes 24/04/2015}
+\maketitle
+
+\vspace{0.1in}
+\makebox[\textwidth]{Nombre completo:\enspace\hrulefill}
+
+\begin{questions}
+
+\question
+
+La señal en tiempo continuo
+
+$$x_{c(t)} = \sin (200 \pi t) + sin (150 \pi t)$$
+
+se muestra con periodo de muestreo \(T\) y se obtiene la señal en tiempo discreto
+
+$$x[n] = \sin\left(\frac{\pi n}{3}\right) + \sin\left(\frac{\pi n}{4}\right)$$
+
+\begin{parts}
+\part[15]
+
+Determine un valor de \(T\) que sea consistente con esta información.
+
+\makeemptybox{\stretch{1}}
+
+\part[15]
+
+¿Es único el valor de \(T\) obtenido en la pregunta anterior? Si es así, explique por qué. Si no, indique otro valor de \(T\) que sea consistente con la información dada.
+
+\makeemptybox{\stretch{1}}
+\newpage
+\end{parts}
+
+\question
+
+Cuando la entrada a un sistema lineal e invariante en el tiempo es
+
+$$x[n] = \left(\frac{1}{6}\right)^{n} u[n] + \left(3\right)^{n} u[-n-1]$$
+
+la salida es
+
+$$y[n] = 5 \left(\frac{1}{6}\right)^{n} u[n] - 5 \left(\frac{1}{4}\right)^{n} u[n]$$
+
+\begin{parts}
+\part[20]
+
+Determine la función de transferencia \(H(z)\) del sistema. Dibuje los polos y ceros de \(H(z)\), e indique la región de convergencia.
+
+\makeemptybox{\stretch{1}}
+\part[20]
+
+Calcule la respuesta al impulso del sistema \(h[n]\) para todos los valores de \(n\).
+
+\makeemptybox{\stretch{1}}
+\newpage
+\part[20]
+
+Escriba la ecuación en diferencias que caracteriza el sistema.
+
+\makeemptybox{\stretch{1}}
+\part[10]
+
+¿Es el sistema estable? ¿Es causal?
+
+\makeemptybox{\stretch{1}}
+
+\end{parts}
+
+
+\end{questions}
+
+\section*{Resultados}
+
+\begin{center}
+\gradetable[v][questions]
+\end{center}
+
+
+\footrule
+\footer{}{Página \thepage\ de \numpages}{}
+
+\end{document}
