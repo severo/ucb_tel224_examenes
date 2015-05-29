@@ -1,0 +1,169 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\boxedpoints
+\pointpoints{punto}{puntos}
+\vqword{Pregunta}
+\vpgword{Página}
+\vpword{Puntos}
+\vsword{Nota}
+\vtword{Total}
+
+
+\begin{document}
+
+\header{TEL224}{Segundo examen}{Viernes 08/05/2015}
+\headrule
+
+
+\title{Segundo examen - TEL224}
+\date{Viernes 08/05/2015}
+\maketitle
+
+\vspace{0.1in}
+\makebox[\textwidth]{Nombre completo:\enspace\hrulefill}
+
+\section*{Preguntas}
+
+\begin{questions}
+\question[5]
+¿Qué son las diferencias entre un conversor ideal de tiempo continuo a tiempo discreto y un conversor analógico-digital?
+\makeemptybox{\stretch{1}}
+
+\question[5]
+Dibuje un sistema que permita multiplicar la frecuencia de muestreo por un factor \(1.2\) sin introducir solapamiento.
+\makeemptybox{\stretch{1}}
+
+\question[5]
+Escribir el teorema de Nyquist
+\makeemptybox{\stretch{1}}
+
+\newpage
+
+\question[5]
+¿Que es la frecuencia de Nyquist?
+\makeemptybox{\stretch{1}}
+
+\question[5]
+Considere el sistema que se muestra en la figura siguiente.
+
+[PARA EL EXAMEN: Copiar la figura del ejercicio 4.15, pero con factor 2, en vez de 3.]
+
+Para la señal de entrada \(x[n] = \text{sen}(\pi n / 3)\), calcule:
+
+\begin{parts}
+
+\part su transformada de Fourier \(X(e^{j\omega})\)
+
+\makeemptybox{\stretch{1}}
+
+\part la transformada de Fourier \(X_d(e^{j\omega})\)
+
+\makeemptybox{\stretch{1}}
+
+\newpage
+
+\part la transformada de Fourier \(X_e(e^{j\omega})\)
+
+\makeemptybox{\stretch{1}}
+
+\part la transformada de Fourier \(X_r(e^{j\omega})\)
+
+\makeemptybox{\stretch{1}}
+
+\part la señal resultante \(x_r[n]\)
+
+\makeemptybox{\stretch{1}}
+
+\end{parts}
+
+\newpage
+
+\question[5]
+Escriba la definición del retardo de grupo.
+
+\makeemptybox{\stretch{1}}
+
+\question[5]
+¿Para que rango de frecuencias el módulo de la respuesta en frecuencia de un sistema pasa-todo es nulo?
+
+\makeemptybox{\stretch{1}}
+
+\question[5]
+¿Por qué es generalmente deseable que un sistema de transmisión sea de fase lineal?
+
+\makeemptybox{\stretch{1}}
+
+\newpage
+
+\question[5]
+Para la función de transferencia \(H(z)\) de un sistema lineal e invariante en el tiempo, cite una condición suficiente sobre los polos, ceros y región de convergencia de \(H(z)\) para que:
+
+\begin{parts}
+
+\part el sistema sea estable
+
+\makeemptybox{\stretch{1}}
+
+\part el sistema sea causal
+
+\makeemptybox{\stretch{1}}
+
+\part el sistema sea de fase mínima
+
+\makeemptybox{\stretch{1}}
+
+\end{parts}
+\newpage
+
+\question[5]
+
+Un sistema en tiempo discreto lineal, invariante con el tiempo y causal tiene como función de transferencia
+
+\[
+H(z) = \frac{\left(1 - 0.64 z^{-2}\right)\left(1 + 4 z^{-2}\right)}{\left(1 + 0.5 z^{-1}\right)}
+\]
+
+\begin{parts}
+\part
+Calcule y dibuje sus ceros, polos y región de convergencia.
+
+\makeemptybox{\stretch{1}}
+
+\part
+Determine las expresiones de un sistema de fase mínima \(H_{min}(z)\) y de un sistema paso todo \(H_{ap}(z)\) de forma que
+
+\[
+H(z) = H_{min}(z) H_{ap}(z)
+\]
+
+\makeemptybox{\stretch{1}}
+
+\newpage
+
+\part
+¿Es estable el sistema \(H_{ap}(z)\)?
+
+\makeemptybox{\stretch{1}}
+\part
+¿Es causal el sistema \(H_{min}(z)\)?
+
+\makeemptybox{\stretch{1}}
+
+\end{parts}
+
+\end{questions}
+
+\section*{Resultados}
+
+\begin{center}
+\gradetable[v][questions]
+\end{center}
+
+
+\footrule
+\footer{}{Página \thepage\ de \numpages}{}
+
+\end{document}
